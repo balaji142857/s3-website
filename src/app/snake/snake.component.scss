@@ -1,0 +1,41 @@
+
+
+
+
+
+
+form{
+  .actions{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+    button{
+      max-height: 100px;
+    }
+  }
+}
+.board_dimension{
+  width: 100px;
+}
+
+#snake_container{
+  border:1px solid black;
+  span{
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: 1px solid black;
+  }
+  .cell{
+    background-color: greenyellow;
+  }
+  .snake-head,.snake-body{
+    background-color: black;
+  }
+  .fruit{
+    background-color: violet;
+  }
+}

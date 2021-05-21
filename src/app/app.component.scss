@@ -1,0 +1,120 @@
+
+
+
+.container{
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-self: stretch;
+  .header{
+    flex-grow: 0;
+  }
+  .content{
+    flex-grow: 1;
+    justify-self: start;
+    mat-drawer-container {
+      height: 100%;
+    }
+    .router-container {
+      display: flex;
+      height: 100%;
+      margin: 20px;
+      justify-content: center;
+    }
+  }
+  .footer{
+    flex-grow: 0;
+    background-color: black;
+    color: white;
+  }
+}
+
+
+
+
+
+.example-sidenav {
+  padding: 20px;
+
+  a.list-link {
+      text-decoration: none;
+      display: flex;
+      justify-content: space-between;
+
+  }
+  ::ng-deep .mat-list-item-content {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      box-sizing: border-box;
+      padding: 0 16px;
+      position: relative;
+      height: inherit;
+      justify-content: space-between;
+      width: 100%;
+    }
+}
+
+
+.router-wrapper-card{
+  padding: 10px;
+  margin: 10px;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+
+//theme related scss
+@mixin size($width, $height: null) {
+	width: $width;
+	height: if($height==null, $width, $height);
+}
+
+.theme-selectors-container{
+	width: 190px;
+	margin: 0 8px;
+}
+
+button.theme-selector {
+	@include size(80px);
+}
+
+div.theme-primary {
+	@include size(70px);
+	border-radius: 50%;
+}
+
+div.theme-accent {
+	@include size(25px);
+	position: absolute;
+	bottom: 0;
+	left: 0;
+}
+
+div.theme-warn {
+	@include size(15px);
+	position: absolute;
+	bottom: 7%;
+	left: 20%;
+	transform: rotate(45deg);
+}
+
+.theme-check {
+	color: white;
+	font-size: 3.2em;
+}
+.theme-selector-is-dark {
+	font-weight: bold;
+	font-size: 1.2em;
+}
+.center {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+}

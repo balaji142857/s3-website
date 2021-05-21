@@ -1,0 +1,22 @@
+<div class="container">
+  <div class="box">
+      <mat-form-field>
+      <input id="row" matInput placeholder="row" class="sudoku_cell" name="row">
+    </mat-form-field>
+    <mat-form-field>
+      <input id="col" matInput placeholder="col" class="sudoku_cell" name="col">
+    </mat-form-field>
+    <button mat-raised-button (click)="showPossibleValues()" color="primary">show</button>
+    <button mat-raised-button (click)="solve()" color="primary">solve</button>
+    <button mat-raised-button (click)="reset()" color="primary">reset</button>
+  </div>
+  <div id="myConsole">&nbsp;</div>
+
+  <div *ngFor="let row of rows" class="sudoku_row">
+    <span *ngFor="let col of cols" [id]="'span_'+row+col">
+      <mat-form-field class="sudoku_cell">
+        <input [id]="row+''+col" matInput>
+      </mat-form-field>
+    </span>
+  </div>
+</div>

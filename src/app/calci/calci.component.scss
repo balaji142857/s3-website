@@ -1,0 +1,43 @@
+.container {
+  width: 70%;;
+  border: 2px solid black;
+  margin: 0 auto;
+  font-weight: bold;
+  background-color: #a98d7d73;
+  .value_container{
+    .result{
+      text-align: right;
+      font-size: 15px;
+      min-height: 20px;
+    }
+    .value{
+      border: 1px solid black;
+      border-left: 0px;
+      border-right: 0px;
+      min-height: 45px;
+      background-color: slategray;
+    }
+  }
+  .options{
+    display: flex;
+    .digits{
+      display: flex;
+      flex-wrap: wrap;
+      flex-basis: 75%;
+      flex-grow: 1;
+      button{
+        width: 30%;
+        margin: 5px;
+      }
+    }
+    .operators{
+      display: flex;
+      flex-wrap: wrap;
+      flex-basis: 25%;
+      button{
+        width: 40%;
+        margin: 5px;
+      }
+    }
+  }
+}

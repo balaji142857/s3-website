@@ -1,0 +1,25 @@
+<div class="container">
+<div class="value_container">
+  <div class="result">
+    <span *ngFor="let item of stack">{{ item }} &nbsp;</span>
+  </div>
+  <div class="value">{{result ? result : currNum }}</div>
+</div>
+
+<div class="options">
+  <div class="digits">
+    <button mat-raised-button *ngFor="let digit of digits"
+    [id]="'Digit'+digit"
+    (click)="considerDigit(digit)"> {{ digit }}</button>
+    <button mat-raised-button (click)="handleDecimal()">.</button>
+  </div>
+  <div class="operators">
+    <button *ngFor="let op of operators"
+      mat-raised-button
+      [id]="'op'+op"
+      (click)="process(op)"> {{ op }}</button>
+      <button mat-raised-button id="equal" (click)="handleResult()">=</button>
+      <button mat-raised-button (click)="reset()">CE</button>
+  </div>
+</div>
+</div>

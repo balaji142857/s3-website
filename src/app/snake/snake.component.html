@@ -1,0 +1,30 @@
+
+
+
+
+
+<form #form="ngForm">
+  <div class="ations">
+    <mat-form-field>
+      <input type="number" matInput name="rows" min="4" max="50" [(ngModel)]="rowCount"
+      [disabled]="board && board.isGameInProgress" class="board_dimension">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="number" matInput name="cols" min="4" max="20" [(ngModel)]="colCount"
+      [disabled]="board && board.isGameInProgress" class="board_dimension">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="number" matInput name="speed" min="200" step="100" [(ngModel)]="speed"
+      [disabled]="board && board.isGameInProgress" class="board_dimension">
+    </mat-form-field>
+    <button mat-raised-button (click)="startGame()" color="primary"
+      [disabled]="(board && board.isGameInProgress) || !rowCount || !colCount">Start</button>
+  </div>
+</form>
+<h3 *ngIf="board">Your Score is {{ board.score }} </h3>
+<div class="container" id="snake_container" *ngIf="board && board.isGameInProgress">
+  <div class="record" *ngFor="let row of rows">
+    {{ row  }}
+    <span class="cell" *ngFor="let col of cols" [id]="row+''+col">&nbsp;</span>
+  </div>
+</div>

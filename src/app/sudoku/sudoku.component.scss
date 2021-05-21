@@ -1,0 +1,29 @@
+
+
+
+
+
+
+.box{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  button {
+    width: 100px;
+    height: 40px;
+  }
+}
+
+.sudoku_row{
+  mat-form-field{
+    max-width: 20px;
+  }
+  display:  flex;
+  margin: 0 auto;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  height: 50px;
+  .sudoku_cell{
+    padding: 3px 15px;
+  }
+}
