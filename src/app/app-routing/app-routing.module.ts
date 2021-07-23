@@ -6,7 +6,7 @@ import { SudokuComponent } from '../sudoku/sudoku.component';
 
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'sudoku' },
+  { path: '', pathMatch: 'full', redirectTo: 'snake' },
   { path: 'sudoku', component: SudokuComponent },
   { path: 'calculator', component: CalciComponent },
   { path: 'snake-game', component: SnakeComponent }

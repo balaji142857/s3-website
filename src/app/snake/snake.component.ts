@@ -14,14 +14,13 @@ export class SnakeComponent  {
   colCount = 13;
   speed = 350;
   board: SnakeBoard;
-  snake: Snake;
 
   rows: number[];
   cols: number[];
 
   startGame() {
     this.rows = [...Array(this.rowCount).keys()];
-    this.cols = [...Array(this.colCount).keys()]
+    this.cols = [...Array(this.colCount).keys()];
     this.board = new SnakeBoard(this.rowCount, this.colCount, this.speed);
   }
 

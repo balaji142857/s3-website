@@ -18,11 +18,17 @@
       [disabled]="board && board.isGameInProgress" class="board_dimension">
     </mat-form-field>
     <button mat-raised-button (click)="startGame()" color="primary"
-      [disabled]="(board && board.isGameInProgress) || !rowCount || !colCount">Start</button>
+      [disabled]="(board && board.isGameInProgress) || !rowCount || !colCount"> Start</button>
+      <button mat-raised-button [disabled]="!board || !board.isGameInProgress" (click)="board.pauseGame()"> Pause </button>
   </div>
 </form>
-<h3 *ngIf="board">Your Score is {{ board.score }} </h3>
-<div class="container" id="snake_container" *ngIf="board && board.isGameInProgress">
+<ng-container *ngIf="board">
+  <h3>Your Score is {{ board.score }} </h3>
+  <div> fruitLocation is  {{ board.fruitPosition.x }} , {{ board.fruitPosition.y }} </div>
+  <div> snakeHead is  {{ board.snake.head.x }} , {{ board.snake.head.y }} </div>
+</ng-container>
+<div class="container" id="snake_container" *ngIf="board">
+  <!-- && board.isGameInProgress -->
   <div class="record" *ngFor="let row of rows">
     {{ row  }}
     <span class="cell" *ngFor="let col of cols" [id]="row+''+col">&nbsp;</span>

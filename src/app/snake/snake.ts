@@ -12,7 +12,8 @@ export class Snake {
     this.direction = 'right';
   }
 
-  move(){
+  move() {
+    this.board.removeClass(this.head, 'snake-body');
     let nextHead = Object.create(this.head);
     switch (this.direction) {
       case 'up':
@@ -29,15 +30,15 @@ export class Snake {
         break;
     }
     if(this.board.isSamePosition(nextHead, this.board.fruitPosition)){
-      this.grow(nextHead);
+      this.head = this.grow(this.head, nextHead);
       this.board.placeFruit();
-      this.board.score+=10*this.board.speed;//TODO base it on speed also
+      this.board.score+=10*this.board.speed;
     } else {
       this.head.x = nextHead.x;
       this.head.y = nextHead.y;
     }
     this.updateSnakeBody(this.head);
-    this.board.paintSnake(this.head);
+    this.board.setClass(this.head, 'snake-body');
     if(!this.isWithinBounds(this.head, this.board)){
       this.board.gameOver();
       return;
@@ -49,31 +50,29 @@ export class Snake {
       return;
     }
     let next = pos.next;
-    this.board.paint(pos,'cell');
-    if(null != next){
-      this.board.paint(pos,'cell');
+    while(next) {
       if(pos.x > next.x){
-        next.x++
+        next.x++;
       } else if(pos.x < next.x) {
-        next.x--
-      }else if(pos.y > next.y){
-        next.y++
-      } else if(pos.y < next.y){
-        next.y--
+        next.x--;
+      } else if(pos.y > next.y) {
+        next.y++;
+      } else if(pos.y < next.y) {
+        next.y--;
       }
+      pos = next;
       next = next.next
     }
-    this.updateSnakeBody(next);
   }
 
-  isWithinBounds(head: Position, board:SnakeBoard){
+  isWithinBounds(head: Position, board:SnakeBoard) {
     return head.x >=0 && head.y >= 0 &&  head.x < board.rowCount && head.y < board.colCount;
   }
 
-  grow(nextHead: Position){
-    let temp = this.head;
-    this.head = nextHead;
-    this.head.next = temp;
+  grow(current: Position, next: Position) {
+    console.log('growing snake',current, next);
+    next.next = Object.create(current);
+    return next;
   }
 
 }

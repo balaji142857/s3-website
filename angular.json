@@ -2,6 +2,7 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "newProjectRoot": "projects",
+
   "projects": {
     "s3-website": {
       "projectType": "application",
@@ -15,6 +16,9 @@
       "prefix": "app",
       "architect": {
         "build": {
+          "angularCompilerOptions": {
+            "enableIvy": false
+          },
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
             "outputPath": "dist/s3-website",
